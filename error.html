@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — Page Not Found | Stackly Expense</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<style>
+  :root{
+    --ink: #16211C;
+    --ink-soft: #3B4A42;
+    --paper: #F4F1E6;
+    --paper-dim: #EAE4D0;
+    --paper-line: rgba(22,33,28,.14);
+    --bg-dark: #0E1712;
+    --bg-dark-2: #0A100C;
+    --dark-line: rgba(244,241,230,.14);
+    --green: #1F6D4C;
+    --green-deep: #123D2A;
+    --green-bright: #33925F;
+    --gold: #C79A3E;
+    --gold-soft: #E7C77A;
+    --rust: #B4472F;
+    --white: #FFFFFF;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html,body{
+    height:100%;
+  }
+
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    overflow:hidden;
+    padding:24px;
+  }
+
+  /* ledger paper texture */
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image:
+      repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 37px,
+        var(--paper-line) 37px,
+        var(--paper-line) 38px
+      );
+    opacity:.55;
+    pointer-events:none;
+    z-index:0;
+  }
+
+  body::after{
+    content:"";
+    position:fixed;
+    top:0; bottom:0; left:64px;
+    width:1px;
+    background:var(--rust);
+    opacity:.28;
+    pointer-events:none;
+    z-index:0;
+  }
+
+  .wrap{
+    position:relative;
+    z-index:1;
+    width:100%;
+    max-width:620px;
+    text-align:center;
+  }
+
+  .stamp{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:6px 14px;
+    border:1px solid var(--paper-line);
+    border-radius:999px;
+    background:var(--paper-dim);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:34px;
+  }
+
+  .stamp::before{
+    content:"";
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:var(--rust);
+    display:inline-block;
+  }
+
+  .code{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-optical-sizing:auto;
+    font-size:clamp(96px, 22vw, 190px);
+    line-height:.9;
+    letter-spacing:-.02em;
+    color:var(--green-deep);
+    position:relative;
+    display:inline-block;
+  }
+
+  .code .zero{
+    color:var(--gold);
+    font-style:italic;
+    font-weight:500;
+    position:relative;
+  }
+
+  .ledger-line{
+    width:120px;
+    height:1px;
+    background:var(--paper-line);
+    margin:22px auto 26px;
+    position:relative;
+  }
+  .ledger-line::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:var(--rust);
+  }
+
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:clamp(24px, 4vw, 32px);
+    color:var(--ink);
+    margin-bottom:12px;
+  }
+
+  p.desc{
+    font-size:15px;
+    line-height:1.65;
+    color:var(--ink-soft);
+    max-width:440px;
+    margin:0 auto 10px;
+  }
+
+  .entry-note{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--ink-soft);
+    opacity:.75;
+    margin-bottom:38px;
+    display:inline-flex;
+    gap:10px;
+    align-items:center;
+  }
+  .entry-note span{
+    opacity:.5;
+  }
+
+  .actions{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+
+  .btn{
+    appearance:none;
+    border:none;
+    cursor:pointer;
+    font-family:'Inter', sans-serif;
+    font-weight:600;
+    font-size:14px;
+    letter-spacing:.01em;
+    padding:14px 26px;
+    border-radius:10px;
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    text-decoration:none;
+    transition:transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s ease, background .3s ease;
+  }
+
+  .btn svg{
+    width:16px;
+    height:16px;
+    flex-shrink:0;
+  }
+
+  .btn-primary{
+    background:var(--green);
+    color:var(--white);
+    box-shadow:0 10px 24px -10px rgba(31,109,76,.55);
+  }
+  .btn-primary:hover{
+    background:var(--green-bright);
+    transform:translateY(-2px);
+    box-shadow:0 14px 30px -10px rgba(31,109,76,.6);
+  }
+
+  .btn-ghost{
+    background:transparent;
+    color:var(--ink);
+    border:1px solid var(--paper-line);
+  }
+  .btn-ghost:hover{
+    background:var(--paper-dim);
+    border-color:var(--ink-soft);
+    transform:translateY(-2px);
+  }
+
+  .btn:active{
+    transform:translateY(0);
+  }
+
+  footer.foot{
+    margin-top:46px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    opacity:.55;
+  }
+
+  @media (max-width:480px){
+    body::after{ left:28px; }
+    .actions{ flex-direction:column; width:100%; }
+    .btn{ width:100%; justify-content:center; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="wrap">
+    
+    <div class="code" data-anim="code">4<span class="zero">0</span>4</div>
+
+    <div class="ledger-line" data-anim="line"></div>
+
+    <div class="stamp" data-anim="stamp">Ledger Entry Not Found</div>
+
+
+    <h1 data-anim="fade">This page didn't balance out</h1>
+    <p class="desc" data-anim="fade">
+      The entry you're looking for isn't in the books — it may have been moved,
+      renamed, or never recorded. Let's get you back to a page that adds up.
+    </p>
+    <div class="entry-note" data-anim="fade">
+      STATUS: <span>UNRECORDED</span> &nbsp;·&nbsp; CODE: <span>404</span>
+    </div>
+
+    <div class="actions" data-anim="fade">
+      <button class="btn btn-ghost" id="goBackBtn" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+        Go Back
+      </button>
+      <a class="btn btn-primary" id="homeBtn" href="index.html">
+        Return to Home
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>
+      </a>
+    </div>
+
+    <!-- <footer class="foot">Stackly Expense</footer> -->
+  </div>
+
+<script>
+  document.getElementById('goBackBtn').addEventListener('click', function(){
+    if (window.history.length > 1) {
+      window.history.back();
+    } else {
+      window.location.href = 'index.html';
+    }
+  });
+
+  if (window.gsap) {
+    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    tl.from('[data-anim="stamp"]', { y: -14, opacity: 0, duration: .6 })
+      .from('[data-anim="code"]', { y: 24, opacity: 0, duration: .8, scale: .96 }, '-=.35')
+      .from('[data-anim="line"]', { scaleX: 0, opacity: 0, duration: .5 }, '-=.3')
+      .from('[data-anim="fade"]', { y: 16, opacity: 0, duration: .6, stagger: .1 }, '-=.2');
+  }
+</script>
+
+</body>
+</html>

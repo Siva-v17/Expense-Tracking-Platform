@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Stackly Expense</title>
+<meta name="description" content="Why we built Stackly Expense, who's behind it, and what we believe about money and clarity.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.footer-pay{ display:flex; align-items:center; gap:12px; }
+.footer-pay .lock{ display:inline-flex; align-items:center; gap:6px; color:rgba(255,255,255,.42); }
+.footer-pay-badges{ display:flex; gap:6px; }
+.footer-pay-badges span{ background:#fff; border-radius:5px; padding:4px 9px; font-size:.68rem; font-weight:800; letter-spacing:.02em; color:#1a1a2e; }
+</style>
+</head>
+<body>
+
+<div class="preloader"><div class="mark">STACKLY EXPENSE</div><div class="bar"><span></span></div></div>
+
+<header class="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo"><img src="./stackly.png" alt="Stackly"></a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <a href="services.html">Services</a>
+      <a href="products.html">Products</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="login.html" class="btn btn-ghost btn-sm">Log in</a>
+      <!-- <a href="login.html" class="btn btn-primary btn-sm magnetic">Start free</a> -->
+    </div>
+    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="mobile-panel">
+  <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a>
+  <a href="products.html">Products</a><a href="pricing.html">Pricing</a><a href="blog.html">Blog</a>
+  <a href="contact.html">Contact</a><a href="login.html">Log in</a>
+</div>
+
+<section class="page-header">
+  <div class="bg-field">
+    <div class="ledger-lines"></div>
+    <div class="blob" style="width:400px;height:400px;top:-100px;right:-60px;background:radial-gradient(circle,#33925F,transparent 70%);"></div>
+  </div>
+  <div class="container">
+    <div class="crumbs">HOME / ABOUT</div>
+    <h1 class="split-line"><span data-split-reveal>Money is easier to manage when it's easy to see.</span></h1>
+    <p class="lede">Stackly Expense started as a shared spreadsheet between three friends who kept guessing where their salaries went. It's now a ledger platform for thousands of people who wanted the same honesty, without the formulas.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container grid-2" style="align-items:center;gap:70px;">
+    <div class="reveal-img" style="aspect-ratio:4/3;">
+      <div class="curtain"></div>
+      <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=2400&q=80&auto=format&fit=crop" alt="Small founding team working around a table with laptops">
+    </div>
+    <div>
+      <div class="eyebrow">Our story</div>
+      <h2 data-split-reveal style="font-size:clamp(28px,3.2vw,42px);margin-top:16px;">Built by people who were tired of finding out too late</h2>
+      <p style="margin-top:18px;color:var(--ink-soft);font-size:16.5px;">In 2022, our three co-founders were splitting an apartment and constantly disagreed about who owed what. Every finance app they tried either oversimplified spending into three colours, or demanded so much manual entry that nobody kept it up.</p>
+      <p style="margin-top:16px;color:var(--ink-soft);font-size:16.5px;">So they built a ledger that read transactions automatically and explained them in plain sentences. Friends asked to use it. Then friends' employers did. Stackly Expense is that same ledger, grown up.</p>
+    </div>
+  </div>
+</section>
+
+<section class="on-dark section">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">What we believe</div>
+      <h2 data-split-reveal>Three principles that shape every feature</h2>
+    </div>
+    <div class="grid-3">
+      <div class="feature-card">
+        <div class="icn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <h3>Clarity before automation</h3>
+        <p>We automate categorisation so you can see faster, not so you stop looking. Every number stays one tap away from its source transaction.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <h3>Your data stays yours</h3>
+        <p>Read-only bank access, encryption at rest, and no selling of transaction data — ever. We built this because we didn't trust the alternative either.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/></svg></div>
+        <h3>Money is a shared subject</h3>
+        <p>Households and small teams need the same visibility individuals do, without giving up their own privacy. Ledgers are built to be shared safely.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Timeline</div>
+      <h2 data-split-reveal>From shared spreadsheet to shared ledger</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><span class="idx">2022</span><h3>The spreadsheet</h3><p>Three co-founders track a shared apartment budget in Google Sheets — and start automating it with scripts.</p></div>
+      <div class="step"><span class="idx">2023</span><h3>Private beta</h3><p>200 friends and colleagues get early access to a categorisation engine that reads bank statements automatically.</p></div>
+      <div class="step"><span class="idx">2024</span><h3>Public launch</h3><p>Stackly Expense opens to everyone, with budgets, alerts, and the first version of shared ledgers.</p></div>
+      <div class="step"><span class="idx">2025</span><h3>Teams &amp; Admin tools</h3><p>Small studios and finance teams adopt Stackly for expense reconciliation and reporting.</p></div>
+      <div class="step"><span class="idx">2026</span><h3>42,000 ledgers</h3><p>Today, Stackly tracks a combined ₹5.3B+ in transactions a year across individuals and teams.</p></div>
+      <div class="step"><span class="idx">Next</span><h3>Where we're headed</h3><p>Deeper forecasting, multi-currency ledgers, and a public API for anyone building on top of their own data.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-paper-dim">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Team</div>
+      <h2 data-split-reveal>The people building the ledger</h2>
+    </div>
+    <div class="grid-4">
+      <div class="feature-card" style="padding:0;overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=1200&q=80&auto=format&fit=crop" alt="Portrait of Meera Krishnan" style="height:220px;object-fit:cover;">
+        <div style="padding:22px;"><h3 style="font-size:17px;">Meera Krishnan</h3><p style="color:var(--ink-soft);font-size:13.5px;margin-top:4px;">Co-founder &amp; CEO</p></div>
+      </div>
+      <div class="feature-card" style="padding:0;overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=1200&q=80&auto=format&fit=crop" alt="Portrait of Arjun Nair" style="height:220px;object-fit:cover;">
+        <div style="padding:22px;"><h3 style="font-size:17px;">Arjun Nair</h3><p style="color:var(--ink-soft);font-size:13.5px;margin-top:4px;">Co-founder &amp; CTO</p></div>
+      </div>
+      <div class="feature-card" style="padding:0;overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=1200&q=80&auto=format&fit=crop" alt="Portrait of Ritika Menon" style="height:220px;object-fit:cover;">
+        <div style="padding:22px;"><h3 style="font-size:17px;">Ritika Menon</h3><p style="color:var(--ink-soft);font-size:13.5px;margin-top:4px;">Head of Design</p></div>
+      </div>
+      <div class="feature-card" style="padding:0;overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=1200&q=80&auto=format&fit=crop" alt="Portrait of Devansh Rao" style="height:220px;object-fit:cover;">
+        <div style="padding:22px;"><h3 style="font-size:17px;">Devansh Rao</h3><p style="color:var(--ink-soft);font-size:13.5px;margin-top:4px;">Head of Trust &amp; Security</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container grid-2" style="align-items:center;gap:70px;">
+    <div>
+      <div class="eyebrow">How it works</div>
+      <h2 data-split-reveal style="font-size:clamp(28px,3.2vw,42px);margin-top:16px;">A ledger that keeps itself, mostly</h2>
+      <p style="margin-top:18px;color:var(--ink-soft);font-size:16.5px;">Stackly Expense connects to your accounts read-only, so it can see transactions the moment they post without ever moving money on your behalf. From there, the categorisation engine does the tedious part, and you stay in charge of the judgment calls.</p>
+      <div class="steps" style="grid-template-columns:1fr;gap:24px;margin-top:34px;">
+        <div class="step"><span class="idx">01</span><h3>Connect an account</h3><p>Link a bank, card, or wallet in read-only mode. Nothing is ever moved or authorised from Stackly.</p></div>
+        <div class="step"><span class="idx">02</span><h3>Let it read the ledger</h3><p>Transactions are categorised automatically and explained in plain language, not just a merchant code.</p></div>
+        <div class="step"><span class="idx">03</span><h3>Review and share</h3><p>Correct a category in one tap, set a budget, or invite a household member into the same ledger.</p></div>
+      </div>
+    </div>
+    <div class="reveal-img" style="aspect-ratio:4/5;">
+      <div class="curtain"></div>
+      <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=2000&q=80&auto=format&fit=crop" alt="Close-up of a ledger interface showing categorised transactions">
+    </div>
+  </div>
+</section>
+
+<section class="section bg-paper-dim">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Questions</div>
+      <h2 data-split-reveal>A few things people ask before joining</h2>
+    </div>
+    <div style="max-width:760px;">
+      <div class="faq-item">
+        <button class="faq-q"><h4>Is my bank data actually safe with Stackly?</h4><span class="plus"></span></button>
+        <div class="faq-a"><p>Yes. Connections are read-only, so Stackly can never move or authorise money. Data is encrypted at rest and in transit, and we never sell transaction data to third parties.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><h4>Can I use Stackly with a partner or roommates?</h4><span class="plus"></span></button>
+        <div class="faq-a"><p>Yes. Shared ledgers let a household or small team see combined spending while each person keeps their own personal accounts private.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><h4>Does the categorisation actually get it right?</h4><span class="plus"></span></button>
+        <div class="faq-a"><p>Most transactions are categorised correctly out of the box, and any correction you make teaches the engine your preferences for next time — nothing is locked in permanently.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><h4>What happens if I stop using Stackly?</h4><span class="plus"></span></button>
+        <div class="faq-a"><p>You can export your full ledger history at any time and disconnect your accounts with one click. Nothing is held hostage.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="container">
+    <div class="cta-band">
+      <div class="bg-field"><div class="blob" style="width:340px;height:340px;bottom:-110px;left:-40px;background:radial-gradient(circle,#C79A3E,transparent 70%);"></div></div>
+      <h2 data-split-reveal>Come see your money the way we see ours.</h2>
+      <div class="actions"><a href="login.html" class="btn btn-gold magnetic">Start free</a><a href="contact.html" class="btn btn-ghost magnetic">Talk to us</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><img src="./stackly.png" alt="Stackly"></a>
+        <p>Stackly Expense helps people and small teams see their money clearly — one ledger, automatically kept.</p>
+        <br>
+        <div class="social-row">
+        <a href="error.html" aria-label="X"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.6 8.7L23 22h-6.9l-5.4-6.7L4.4 22H1.3l8.1-9.3L1 2h7l4.9 6.1L18.9 2z"/></svg></a>
+        <a href="error.html" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.6 4.78 6v6.25h-4v-5.55c0-1.32-.02-3-1.83-3-1.84 0-2.12 1.4-2.12 2.9V21H10z"/></svg></a>
+        <a href="error.html" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+      </div>
+      </div>
+      <div class="footer-col"><h5>Product</h5>
+        <a href="products.html">Features</a><a href="pricing.html">Pricing</a><a href="services.html">Services</a>
+        <!-- <a href="login.html">Log in</a> -->
+      </div>
+      <div class="footer-col"><h5>Company</h5>
+        <a href="about.html">About</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col"><h5>Resources</h5>
+        <a href="blog.html">Guides</a><a href="contact.html">Support</a><a href="pricing.html">FAQ</a>
+      </div>
+      <div class="footer-col"><h5>Legal</h5>
+        <a href="error.html">Privacy</a><a href="error.html">Terms</a><a href="error.html">Security</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Stackly Expense. All rights reserved.</p>
+      <div class="footer-pay">
+        <span class="lock"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg> Secure payments</span>
+        <div class="footer-pay-badges">
+          <span>VISA</span><span>MC</span><span>UPI</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
