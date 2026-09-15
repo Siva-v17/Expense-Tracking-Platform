@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sign in — Stackly Vault</title>
+<title>Sign in</title>
 <meta name="description" content="Sign in or create your Stackly Vault account to start managing documents securely.">
 <link rel="icon" href="./stackly.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -390,6 +390,7 @@ section.tight{ padding: 88px 0; }
 .tag-pill{ background:var(--surface-2); border:1px solid var(--line); padding:4px 12px; border-radius:999px; font-size:.72rem; color:var(--manila); }
 
 /* forms */
+.field{ min-width:0; }
 .field{ display:flex; flex-direction:column; gap:8px; margin-bottom:18px; }
 .field label{ font-size:.82rem; font-weight:700; color: var(--slate); }
 .field input, .field textarea, .field select{
@@ -523,7 +524,12 @@ footer::before{ content:''; position:absolute; top:0; left:0; right:0; height:3p
 .back-home-link{ display:inline-flex; align-items:center; gap:8px; color:var(--slate); font-size:.86rem; font-weight:600; padding:8px 4px; transition: color .2s var(--ease), gap .2s var(--ease); }
 .back-home-link:hover{ color:var(--manila); gap:11px; }
 .back-home-link svg{ flex-shrink:0; }
-.form-row-split{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.form-row-split{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* was: 1fr 1fr */
+  gap:14px;
+}
+.form-row-split .field{ min-width:0; } /* belt-and-suspenders */
 .form-note-row{ display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; }
 .form-note-row a{ color:var(--manila); font-size:.84rem; font-weight:600; }
 .strength-meter{ height:4px; background:var(--line); border-radius:4px; overflow:hidden; margin-top:8px; }
