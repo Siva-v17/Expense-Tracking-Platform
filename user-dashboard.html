@@ -142,6 +142,35 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 .field input:focus, .field select:focus, .field textarea:focus{ border-color: var(--green); box-shadow: 0 0 0 3px rgba(31,109,76,.14); outline:none; }
 .field textarea{ resize: vertical; min-height: 100px; }
+
+/* ---- Custom select (keeps the option list inside the viewport) ---- */
+.dd{ position:relative; }
+.dd select{ position:absolute; inset:0; width:100%; height:100%; opacity:0; pointer-events:none; }
+.dd-trigger{
+  width:100%; padding:13px 16px; border-radius: var(--radius-s);
+  border:1px solid var(--paper-line); background: var(--white); color: var(--ink);
+  display:flex; align-items:center; justify-content:space-between; gap:10px;
+  font-family: inherit; font-size: 1rem; text-align:left; cursor:pointer;
+  transition: border-color .3s var(--ease), box-shadow .3s var(--ease);
+}
+.dd-trigger:focus-visible, .dd.is-open .dd-trigger{ border-color: var(--green); box-shadow: 0 0 0 3px rgba(31,109,76,.14); outline:none; }
+.dd-trigger .dd-chevron{ flex:none; color: var(--ink-soft); transition: transform .25s var(--ease); }
+.dd.is-open .dd-trigger .dd-chevron{ transform: rotate(180deg); }
+.dd-menu{
+  position:absolute; left:0; right:0; top:calc(100% + 6px); z-index:60;
+  margin:0; padding:6px; list-style:none;
+  background: var(--white); border:1px solid var(--paper-line); border-radius: var(--radius-s);
+  box-shadow: 0 16px 40px rgba(22,33,28,.16);
+  max-height:240px; overflow-y:auto;
+  opacity:0; visibility:hidden; transform:translateY(-6px);
+  transition: opacity .18s var(--ease), transform .18s var(--ease), visibility .18s;
+}
+.dd.is-open .dd-menu{ opacity:1; visibility:visible; transform:translateY(0); }
+.dd.is-up .dd-menu{ top:auto; bottom:calc(100% + 6px); transform:translateY(6px); }
+.dd.is-up.is-open .dd-menu{ transform:translateY(0); }
+.dd-option{ padding:10px 12px; border-radius:6px; font-size:14.5px; color: var(--ink); cursor:pointer; }
+.dd-option:hover, .dd-option.is-active{ background: var(--paper-dim); }
+.dd-option.is-selected{ color: var(--green); font-weight:600; }
 .form-success{ display:none; padding: 14px 16px; border-radius: var(--radius-s); background: rgba(31,109,76,.1); border:1px solid var(--green); font-size: 14px; margin-top: 12px; }
 .form-success.is-visible{ display:block; }
 .field-row{ display:grid; grid-template-columns: 1fr 1fr; gap: 18px; }
@@ -216,7 +245,8 @@ tr:last-child td{ border-bottom:none; }
 .hamburger.is-open span:nth-child(3){ top:9px; transform: rotate(-45deg); }
 
 .stat-cards{ display:grid; grid-template-columns: repeat(4,1fr); gap: 20px; margin-bottom: 30px; }
-.stat-card{ background: var(--white); border: 1px solid var(--paper-line); border-radius: var(--radius-m); padding: 24px; }
+.stat-card{ background: var(--white); border: 1px solid var(--paper-line); border-radius: var(--radius-m); padding: 24px; transition: transform .4s var(--ease), box-shadow .4s var(--ease), border-color .4s var(--ease); }
+.stat-card:hover{ transform: translateY(-6px); box-shadow: 0 26px 50px -30px rgba(18,61,42,.4); border-color: var(--green); }
 .stat-card .top-row{ display:flex; justify-content:space-between; align-items:flex-start; }
 .stat-card .icn{ width:38px; height:38px; border-radius:10px; background: var(--paper-dim); display:flex; align-items:center; justify-content:center; color: var(--green); }
 .stat-card .delta{ font-family: var(--font-mono); font-size: 12px; padding: 3px 9px; border-radius: 20px; }
@@ -245,7 +275,8 @@ tr:last-child td{ border-bottom:none; }
 
 /* ---- Receipts grid ---- */
 .receipt-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
-.receipt-card{ border: 1px solid var(--paper-line); border-radius: var(--radius-m); padding: 18px; background: var(--white); }
+.receipt-card{ border: 1px solid var(--paper-line); border-radius: var(--radius-m); padding: 18px; background: var(--white); transition: transform .4s var(--ease), box-shadow .4s var(--ease), border-color .4s var(--ease); }
+.receipt-card:hover{ transform: translateY(-4px); box-shadow: 0 26px 50px -30px rgba(18,61,42,.4); border-color: var(--green); }
 .receipt-card .thumb{ height: 90px; border-radius: var(--radius-s); background: var(--paper-dim); display:flex; align-items:center; justify-content:center; color: var(--ink-soft); margin-bottom: 14px; }
 .receipt-card .merchant{ font-weight: 600; font-size: 14.5px; }
 .receipt-card .meta{ font-size: 12.5px; color: var(--ink-soft); margin-top: 4px; }
@@ -253,7 +284,8 @@ tr:last-child td{ border-bottom:none; }
 .receipt-card .amt{ font-family: var(--font-mono); font-size: 15px; }
 
 /* ---- Linked accounts ---- */
-.account-card{ display:flex; align-items:center; justify-content:space-between; gap: 16px; border: 1px solid var(--paper-line); border-radius: var(--radius-m); padding: 20px 22px; background: var(--white); margin-bottom: 14px; }
+.account-card{ display:flex; align-items:center; justify-content:space-between; gap: 16px; border: 1px solid var(--paper-line); border-radius: var(--radius-m); padding: 20px 22px; background: var(--white); margin-bottom: 14px; transition: transform .4s var(--ease), box-shadow .4s var(--ease), border-color .4s var(--ease); }
+.account-card:hover{ transform: translateY(-4px); box-shadow: 0 26px 50px -30px rgba(18,61,42,.4); border-color: var(--green); }
 .account-card:last-child{ margin-bottom: 0; }
 .account-card .left{ display:flex; align-items:center; gap: 16px; }
 .account-card .bank-icn{ width: 46px; height: 46px; border-radius: 12px; background: var(--paper-dim); color: var(--green); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
@@ -835,6 +867,108 @@ document.querySelectorAll('form[data-validate]').forEach(form => {
       }
     });
   }
+</script>
+<script>
+/* Custom dropdown: replaces native <select> popups (which can render
+   outside the visible viewport, especially on smaller screens) with a
+   contained, in-page menu that's always clipped to the card. */
+(function(){
+  function enhance(select){
+    if(select.closest('.dd')) return;
+
+    const wrap = document.createElement('div');
+    wrap.className = 'dd';
+    select.parentNode.insertBefore(wrap, select);
+    wrap.appendChild(select);
+
+    const trigger = document.createElement('button');
+    trigger.type = 'button';
+    trigger.className = 'dd-trigger';
+    trigger.setAttribute('aria-haspopup', 'listbox');
+    trigger.setAttribute('aria-expanded', 'false');
+
+    const valueEl = document.createElement('span');
+    valueEl.className = 'dd-trigger-value';
+    trigger.appendChild(valueEl);
+    trigger.insertAdjacentHTML('beforeend',
+      '<svg class="dd-chevron" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">'
+      + '<path d="M2.5 5L7 9.5L11.5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+
+    const menu = document.createElement('ul');
+    menu.className = 'dd-menu';
+    menu.setAttribute('role', 'listbox');
+
+    Array.from(select.options).forEach((opt, i) => {
+      const li = document.createElement('li');
+      li.className = 'dd-option' + (opt.selected ? ' is-selected' : '');
+      li.setAttribute('role', 'option');
+      li.textContent = opt.textContent;
+      li.addEventListener('click', () => {
+        select.selectedIndex = i;
+        valueEl.textContent = opt.textContent;
+        menu.querySelectorAll('.dd-option').forEach(o => o.classList.remove('is-selected'));
+        li.classList.add('is-selected');
+        close();
+        select.dispatchEvent(new Event('change', { bubbles: true }));
+      });
+      menu.appendChild(li);
+    });
+
+    valueEl.textContent = select.options[select.selectedIndex] ? select.options[select.selectedIndex].textContent : '';
+    select.setAttribute('tabindex', '-1');
+    select.setAttribute('aria-hidden', 'true');
+
+    if(select.id){
+      const label = document.querySelector(`label[for="${select.id}"]`);
+      if(label){
+        label.addEventListener('click', (e) => { e.preventDefault(); trigger.focus(); trigger.click(); });
+      }
+    }
+
+    wrap.appendChild(trigger);
+    wrap.appendChild(menu);
+
+    function position(){
+      wrap.classList.remove('is-up');
+      const rect = wrap.getBoundingClientRect();
+      const needed = Math.min(menu.scrollHeight, 240) + 12;
+      if(window.innerHeight - rect.bottom < needed && rect.top > needed){
+        wrap.classList.add('is-up');
+      }
+    }
+    function open(){
+      document.querySelectorAll('.dd.is-open').forEach(d => { if(d !== wrap) closeOther(d); });
+      wrap.classList.add('is-open');
+      trigger.setAttribute('aria-expanded', 'true');
+      position();
+    }
+    function close(){
+      wrap.classList.remove('is-open');
+      trigger.setAttribute('aria-expanded', 'false');
+    }
+    function closeOther(d){
+      d.classList.remove('is-open');
+      const t = d.querySelector('.dd-trigger');
+      if(t) t.setAttribute('aria-expanded', 'false');
+    }
+
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      wrap.classList.contains('is-open') ? close() : open();
+    });
+    trigger.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape') close();
+    });
+    document.addEventListener('click', (e) => {
+      if(!wrap.contains(e.target)) close();
+    });
+    window.addEventListener('resize', () => { if(wrap.classList.contains('is-open')) position(); });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.field select').forEach(enhance);
+  });
+})();
 </script>
 </body>
 </html>
