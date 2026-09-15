@@ -556,10 +556,10 @@ tr:last-child td{ border-bottom:none; }
       <section class="dash-panel" data-panel-id="settings">
         <div class="panel" style="margin-bottom:22px;">
           <div class="panel-head"><h3>Profile</h3></div>
-          <div class="settings-avatar-row">
-            <img data-user-avatar src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80&auto=format&fit=crop&crop=faces" alt="">
+          <!-- <div class="settings-avatar-row">
+            <img data-user-avatar src="https://images.unsplash.com/photo-1740252117044-2af197eea287?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8YXZhdGFyfGVufDB8fDB8fHww" alt="">
             <div><button class="btn btn-outline btn-sm">Change photo</button></div>
-          </div>
+          </div> -->
           <form data-validate>
             <div class="field-row">
               <div class="field"><label>Full name</label><input type="text" data-user-name-input required></div>
@@ -764,7 +764,8 @@ gsap.utils.toArray('.stat-card, .panel, .receipt-card, .account-card').forEach((
   gsap.from(card, {
     opacity: 0, y: 30, duration: .7, ease: 'power3.out',
     scrollTrigger: { trigger: card, start: 'top 95%' },
-    delay: (i % 4) * 0.05
+    delay: (i % 4) * 0.05,
+    clearProps: 'transform'
   });
 });
 
